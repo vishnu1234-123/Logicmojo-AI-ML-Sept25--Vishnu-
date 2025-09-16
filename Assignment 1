@@ -32,3 +32,24 @@ for i in range(0,n):
             print(" ",end="")
         print("*")
 
+** check a number if it is a palindrome**
+
+import math
+n=int(input("Enter number: "))
+if(n>=0 and n<=9):
+    print("it is a palindrome")
+else:
+    no_of_dig=int(math.log10(n))
+    sum=0
+    copy_n=n
+    while(n!=0):
+        rem=n%10
+        n=n//10
+        sum=sum+int(rem*(10**no_of_dig))
+        no_of_dig-=1
+    if(sum==copy_n):
+        print("it is a palindrome")
+    else:
+        print("it is not a palindrome")
+
+
