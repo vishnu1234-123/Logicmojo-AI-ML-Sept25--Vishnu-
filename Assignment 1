@@ -52,4 +52,17 @@ else:
     else:
         print("it is not a palindrome")
 
+* Write a program to count no. of vowels and print all the vowels*
+
+n=input("enter string : ")
+count=0
+for i in n:
+    k=i.lower()
+    if (k=='a' or k=='e' or k=='i' or k=='o' or k=='u'):
+        print(i)
+        count+=1
+    
+print("total count of vowels: ",count)
+
+
 
