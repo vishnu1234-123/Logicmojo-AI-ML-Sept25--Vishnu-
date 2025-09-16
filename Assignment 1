@@ -32,7 +32,7 @@ for i in range(0,n):
             print(" ",end="")
         print("*")
 
-** check a number if it is a palindrome**
+** write a program to check a number if it is a palindrome**
 
 import math
 n=int(input("Enter number: "))
@@ -52,7 +52,34 @@ else:
     else:
         print("it is not a palindrome")
 
-* Write a program to count no. of vowels and print all the vowels*
+
+
+
+** Write program count the blank spaces. **
+
+
+n=input("enter string : ")
+count=0
+for i in n:
+    if i==" ":
+        count+=1
+    
+print("total count of blank spaces: ",count)
+
+
+
+** Write a program to Reversing a String without using reverse(). **
+
+n=input("enter string : ")
+charac=[]
+str_len=len(n)-1
+for i in range(str_len,-1,-1):
+    charac.append(n[i])
+string="".join(charac)
+print("reversed string : ",string)
+
+
+** Write a program to count no. of vowels and print all the vowels **
 
 n=input("enter string : ")
 count=0
@@ -63,6 +90,5 @@ for i in n:
         count+=1
     
 print("total count of vowels: ",count)
-
 
 
