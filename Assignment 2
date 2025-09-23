@@ -1,0 +1,85 @@
+** Circular Linked List ** 
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class CircularLinkedList:
+    def __init__(self):
+        self.head=None
+    def insert_at_end(self,data):
+        newNode=Node(data)
+        if self.head==None:
+            self.head=newNode
+            newNode.next=self.head
+            return
+        currNode=self.head
+        while(currNode.next!=self.head):
+            currNode=currNode.next
+        currNode.next=newNode
+        newNode.next=self.head
+        return
+    def delete_node(self,key):
+        if self.head==None:
+            print("data not found to delete_node")
+            return
+        prevNode=None
+        currNode=self.head
+        nextNode=currNode.next
+        lastNode=currNode
+        while(lastNode.next!=self.head):
+            lastNode=lastNode.next
+        
+        while(currNode.next!=self.head):
+            if(currNode.data==key and currNode==self.head):
+                self.head=currNode.next
+                lastNode.next=self.head
+                return
+            if(currNode.data==key):
+                prevNode.next=currNode.next
+            prevNode=currNode
+            currNode=currNode.next
+        if(currNode.data==key):
+            prevNode.next=self.head
+        return
+            
+        
+    def traverse_list(self):
+        currNode=self.head
+        while(currNode.next!=self.head):
+            print(currNode.data,"->",end="")
+            currNode=currNode.next
+        print(currNode.data)
+            
+    def search_for_value(self,value):
+        currNode=self.head
+        while(currNode.next!=head):
+            if(currNode.data==value):
+                return True
+            
+            currNode=currNode.next
+        if(currNode.data==value):
+            return True
+        return False
+    
+# Example usage
+circular_list = CircularLinkedList()
+
+# Insert elements
+circular_list.insert_at_end(1)
+circular_list.insert_at_end(2)
+circular_list.insert_at_end(3)
+circular_list.insert_at_end(4)
+
+# Traverse the list
+print("Circular Linked List:")
+circular_list.traverse_list()  
+
+# Delete a node
+circular_list.delete_node(3)
+print("After deleting 3:")
+circular_list.traverse_list()  
+# Delete the head node
+circular_list.delete_node(1)
+print("After deleting 1:")
+circular_list.traverse_list()  
