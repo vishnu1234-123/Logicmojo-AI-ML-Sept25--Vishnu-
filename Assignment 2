@@ -1,0 +1,89 @@
+*** Q1  Sometimes the data has few duplicate values which will affect the analysis done. In this problem, you will be given a list. You have to find and delete the duplicates and print the updated list with no duplicates.
+
+Input: A list of integers.
+
+Output: A list of integers, with duplicates removed if any.
+
+Sample input: [8, 9, 2, 2, 3, 4, 5, 2]
+
+Sample output: [8, 9, 2, 3, 4, 5]
+
+Sample input: [4, 4, 4, 4]
+
+Sample output: [4]
+
+Note the order of the data did not change in input and output.****
+
+CODE:
+
+duplicate_list=list(map(int,input().split()))
+unique_set=set()
+unique_list=list()
+for num in duplicate_list:
+    if num not in unique_set:
+        unique_set.add(num)
+        unique_list.append(num)
+print(unique_list)
+
+
+*** Q2 """You will be converting a dictionary, of string(keys) and list of string (values), to a list of strings. Please check the sample input/output for clarification.
+
+Input: A dictionary with keys as strings and values as a list of strings.
+
+Output: A list of strings
+
+Sample input: {‘Mobile’: [‘Redmi’, ‘Samsung’, ‘Realme’], ‘Laptop’: [‘Dell’, ‘HP’], ‘TV’: [‘Videocon’, ‘Sony’] }
+
+Sample output: [‘Mobile_Redmi’, ‘Mobile_Samsung’, ‘Mobile_Realme’, ‘Laptop_Dell’, ‘Laptop_HP’, ‘TV_Videocon’, ‘TV_Sony’]
+
+Sample input: { 'Pen': ['Gel', 'Ink', 'ball'], 'Mobile': ['Android', 'apple'] }
+
+Sample output: ['Pen_Gel', 'Pen_Ink', 'Pen_ball', 'Mobile_Android', 'Mobile_apple']"""
+
+CODE:
+
+
+def convert_dict_to_list(dictionary):
+    solution=list()
+    for key,value in dictionary.items():
+        if(isinstance(value,list)):
+            for i in value:
+                val=key+"_"+i
+                solution.append(val)
+    print(solution)
+
+
+
+input={"Mobile": ["Redmi", "Samsung", "Realme"], "Laptop": ["Dell", "HP"], "TV": ["Videocon", "Sony"] }
+convert_dict_to_list(input)
+input={ 'Pen': ['Gel', 'Ink', 'ball'], 'Mobile': ['Android', 'apple'] }
+convert_dict_to_list(input) 
+
+
+
+***"""Q4 You will be given a dictionary with keys as items and values as their prices. You have to print the cheapest item.
+
+Sample input: A single line non-empty dictionary
+
+Sample output: cheapest_item name: cheapest_item_cost
+
+Sample input: {'mobile1':10000, 'mobile2':11000, 'mobile3':13000, 'mobile4':9000, 'mobile5':15000, 'mobile6':16000, 'mobile7':17000, 'mobile8':18000, 'mobile9':19000}
+
+Sample output: mobile4: 9000
+
+Note: in case of a tie, whichever item came first should be the output."""
+
+CODE:
+
+
+def find_min(dictionary):
+    min_key=""
+    min_val=float('inf')
+    for key,value in dictionary.items():
+        if value<min_val:
+            min_val=value
+            min_key=key
+    print(min_key+":",min_val)
+
+input={'mobile1':10000, 'mobile2':11000, 'mobile3':13000, 'mobile4':9000, 'mobile5':15000, 'mobile6':16000, 'mobile7':17000, 'mobile8':18000, 'mobile9':19000}
+find_min(input)
