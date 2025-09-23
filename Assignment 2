@@ -87,3 +87,35 @@ def find_min(dictionary):
 
 input={'mobile1':10000, 'mobile2':11000, 'mobile3':13000, 'mobile4':9000, 'mobile5':15000, 'mobile6':16000, 'mobile7':17000, 'mobile8':18000, 'mobile9':19000}
 find_min(input)
+
+
+
+"""Q5 You will be given a list of repeated elements. You have to find the maximum distance between two same elements. The answer will be zero if there are no repeated elements.
+
+Input: A non-empty list of integers.
+
+Output: A single integer denoting the maximum distance between two same integers.
+
+Sample input: [1, 2, 3, 2, 5, 1, 2, 4, 6, 2, 7, 8, 6]
+
+Sample output: 8
+
+Explanation: Max distance for 1: 5 Max distance for 2: 8 Max distance for 3: 0 Max distance for 4: 0 Max distance for 5: 0 Max distance for 6: 4 Max distance for 7: 0 Max distance for 8: 0"""
+
+def max_distance(input_list):
+    list_dist=dict()
+    for i in range(0,len(input_list)):
+        if input_list[i] in list_dist:
+            list_dist[input_list[i]].append(i)
+        else:
+            list_dist[input_list[i]]=[i]
+    
+    max_dist=-float('inf')
+    for value in list_dist.values():
+        length=len(value)
+        if(max_dist<(value[length-1]-value[0])):
+            max_dist=int(value[length-1])-int(value[0])
+        
+    print(max_dist)
+input_list= [1, 2, 3, 2, 5, 1, 2, 4, 6, 2, 7, 8, 6]
+max_distance(input_list)
