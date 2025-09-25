@@ -197,3 +197,47 @@ sorted_values=sort_values(output_dict)
 print(sorted_values)
 
 
+
+"""Q 8 In the binary search, you kept reducing the search space into half of the previous search space. In this question, can you similarly reduce the search space in one-third of the last space search and write a searching algorithm?
+
+Input: A non-empty sorted list of unique integers in line one The integer key to be found in line two
+
+Output: Index of the element key if it is present in the list, else -1
+
+Sample input: [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27] 17
+
+Sample output: 7
+
+Sample input: [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27] 1
+
+Sample output: -1"""
+
+def ternary_search(arr,left,right,target):
+    if(left>right):
+        return -1
+    if(left==right):
+        if(arr[left]==target):
+            return left
+        return -1
+    
+    mid1=left+(right-left)//3
+    mid2=right-(right-left)//3
+    if(arr[mid1]==target):
+        return mid1
+    
+    if(arr[mid2]==target):
+        return mid2
+    
+    if(arr[mid1]>target):
+        return ternary_search(arr,left,mid1-1,target)
+    elif(arr[mid2]<target):
+        return ternary_search(arr,mid2+1,right,target)
+    else:
+        return ternary_search(arr,mid1+1,mid2-1,target)
+    
+    
+nums=[3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27]
+answer1=ternary_search(nums,0,len(nums)-1,17)
+print(answer1)
+answer2=ternary_search(nums,0,len(nums)-1,1)
+print(answer2)
