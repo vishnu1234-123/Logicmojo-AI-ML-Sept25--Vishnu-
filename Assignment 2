@@ -61,6 +61,55 @@ convert_dict_to_list(input)
 
 
 
+
+"""Q3 : Description You will be given a string with a lot of brackets. You have to print if the brackets are balanced or not. Remember, there are three types of brackets: ‘( )’, ‘{ }’ and ‘[ ]’.
+
+Input: A string
+
+Output: Yes, if the brackets are balanced. No otherwise."""
+
+
+
+def check_balanced_brackets(str_input):
+    if(len(str_input)%2==1):
+        print("No")
+        return
+    
+    str_list=list()
+    
+    for ch in str_input:
+        if ch in "{([":
+            str_list.append(ch)
+        else:
+            if not str_list:
+                print("No")
+                return
+            last_ele=str_list.pop()
+            if(last_ele=='{' and ch!='}'):
+                print("No")
+                return
+            elif(last_ele=='(' and ch!=')'):
+                print("No")
+                return
+            elif(last_ele=='[' and ch!=']'):
+                print("No")
+                return
+            
+    if len(str_list)==0:
+        print("Yes")
+        return
+    print("No")
+    return
+    
+
+    
+
+str_input=input("enter string to check it is balanced or not: ")
+check_balanced_brackets(str_input)
+
+
+
+
 ***"""Q4 You will be given a dictionary with keys as items and values as their prices. You have to print the cheapest item.
 
 Sample input: A single line non-empty dictionary
